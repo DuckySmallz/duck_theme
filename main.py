@@ -104,6 +104,10 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
             f.write(modified)
         
     os.system("sudo pacman -Syy hyprland wayland gtk3 wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish --noconfirm")
+    os.system(f"echo 'gtk-icon-theme-name = candy-icons' >> /home/{USER}/.config/gtk-4.0/settings.ini")
+    os.system(f"echo 'gtk-icon-theme-name = candy-icons' >> /home/{USER}/.config/gtk-3.0/settings.ini")
+    os.system(f"echo 'gtk-application-prefer-dark-theme = true' >> /home/{USER}/.config/gtk-4.0/settings.ini")
+    os.system(f"echo 'gtk-application-prefer-dark-theme = true' >> /home/{USER}/.config/gtk-3.0/settings.ini")
     os.system(f"sudo usermod -s /bin/fish {USER}")
 else:
     os.system(f"rm -r /home/{USER}/.config/hypr")
