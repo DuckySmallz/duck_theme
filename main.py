@@ -107,6 +107,9 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
     os.system("sudo pacman -Syy hyprland wayland gdm gtk3 ufw flatpak plymouth ttf-font-awesome wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
     os.system("sudo cp -r depends/hyprland-mac-style /usr/share/plymouth/themes/")
     os.system(f"echo '[Daemon] \n Theme=hyprland-mac-style' > /etc/plymouth/plymouthd.conf")
+    os.system("sudo systemctl enable plymouth")
+    os.system(f"echo 'auth sufficient pam_succeed_if.so user ingroup nopasswdlogin' >> /etc/pam.d/gdm-password")
+    os.system(f"echo '[daemon] \n AutomaticLogin={USER} \n AutomaticLoginEnable=True' > /etc/gdm/custom.conf")
     if not os.path.exists("/bin/yay"):
         os.system(f"git clone https://aur.archlinux.org/yay /home/{USER}/")
         os.system(f"makepkg -si /home/{USER}/yay/PKGBUILD")
