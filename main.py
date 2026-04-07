@@ -104,7 +104,7 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
         with open(x, "w") as f:
             f.write(modified)
         
-    os.system("sudo pacman -Syy hyprland wayland gdm gtk3 flatpak plymouth ttf-font-awesome wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
+    os.system("sudo pacman -Syy hyprland wayland gdm gtk3 ufw flatpak plymouth ttf-font-awesome wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
     os.system("sudo cp -r depends/hyprland-mac-style /usr/share/plymouth/themes/")
     os.system(f"echo '[Daemon] \n Theme=hyprland-mac-style' > /etc/plymouth/plymouthd.conf")
     if not os.path.exists("/bin/yay"):
