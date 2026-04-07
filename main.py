@@ -103,7 +103,7 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
         with open(x, "w") as f:
             f.write(modified)
         
-    os.system("sudo pacman -Syy hyprland wayland gtk3 xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle nautilus kitty rofi waybar fastfetch fish --noconfirm")
+    os.system("sudo pacman -Syy hyprland wayland gtk3 xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle nautilus kitty rofi waybar hyprpolkitagent fastfetch fish --noconfirm")
     os.system(f"sudo usermod -s /bin/fish {USER}")
 else:
     os.system(f"rm -r /home/{USER}/.config/hypr")
