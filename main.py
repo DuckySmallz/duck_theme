@@ -82,6 +82,7 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
         os.system("depends/yaru/install.sh")
         os.system("rm -r depends/yaru")
     if gpu == "nvidia":
+        os.system("sudo pacman -Syy nvidia-open")
         os.system(f"rm /home/{USER}/.config/waybar/config.jsonc")
         os.system(f"mv /home/{USER}/.config/waybar/config_nvidia.jsonc /home/{USER}/.config/waybar/config.jsonc")
     else:
@@ -103,8 +104,11 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
         with open(x, "w") as f:
             f.write(modified)
         
-    os.system("sudo pacman -Syy hyprland wayland gdm gtk3 wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
-    #add yay check
+    os.system("sudo pacman -Syy hyprland wayland gdm gtk3 flatpak plymouth ttf-font-awesome wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
+    if not os.path.exists("/bin/yay"):
+        os.system(f"git clone https://aur.archlinux.org/yay /home/{USER}/")
+        os.system(f"makepkg -si /home/{USER}/yay/PKGBUILD")
+    os.system("yay -Syy nm-applet brave-bin")
     os.system("sudo systemctl enable gdm")
     os.system(f"echo 'gtk-icon-theme-name = candy-icons' >> /home/{USER}/.config/gtk-4.0/settings.ini")
     os.system(f"echo 'gtk-icon-theme-name = candy-icons' >> /home/{USER}/.config/gtk-3.0/settings.ini")
