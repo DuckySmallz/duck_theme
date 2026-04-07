@@ -105,6 +105,8 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
             f.write(modified)
         
     os.system("sudo pacman -Syy hyprland wayland gdm gtk3 flatpak plymouth ttf-font-awesome wireplumber pipewire-pulse xdg-desktop-portal-hyprland hyprlock hyprpaper hypridle hyprshot nautilus kitty rofi waybar hyprpolkitagent fastfetch fish steam discord --noconfirm")
+    os.system("sudo cp -r depends/hyprland-mac-style /usr/share/plymouth/themes/")
+    os.system(f"echo '[Daemon] \n Theme=hyprland-mac-style' > /etc/plymouth/plymouthd.conf")
     if not os.path.exists("/bin/yay"):
         os.system(f"git clone https://aur.archlinux.org/yay /home/{USER}/")
         os.system(f"makepkg -si /home/{USER}/yay/PKGBUILD")
