@@ -70,7 +70,7 @@ if not os.path.isdir(f"/home/{USER}/.config/ducktheme"):
     os.system(f"mkdir /home/{USER}/.config/ducktheme")
     os.system(f"cp -r src/* /home/{USER}/.config/")
     os.system(f"mkdir /home/{USER}/.icons")
-    os.system(f"tar -xf depends/candy-icons.tar.xz -C /home/{USER}/.icons")
+    os.system(f"tar -xf depends/candy-icons.tar.xz -C /home/{USER}/.local/share/icons/")
     os.system(f"mkdir /home/{USER}/.system_images")
     os.system(f"mkdir /home/{USER}/.system_images/wallpaper")
     os.system(f"mkdir /home/{USER}/.system_images/lock_pic")
@@ -137,5 +137,6 @@ else:
             modified = modified.replace("[PISSKEY7]", THEMES[color][7])
         with open(x, "w") as f:
             f.write(modified)
+        
 
 input("INSTALLATION COMPLETE. Press any key to exit.")
